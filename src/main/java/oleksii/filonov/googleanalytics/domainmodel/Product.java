@@ -1,13 +1,19 @@
 package oleksii.filonov.googleanalytics.domainmodel;
 
+import com.googlecode.jcsv.annotations.MapToColumn;
+
 public class Product {
 
+	@MapToColumn(column=0)
 	private String id;
 
+	@MapToColumn(column=1)
 	private String title;
 
+	@MapToColumn(column=2)
 	private String description;
 
+	@MapToColumn(column=3)
 	private int price;
 
 	public String getId() {
