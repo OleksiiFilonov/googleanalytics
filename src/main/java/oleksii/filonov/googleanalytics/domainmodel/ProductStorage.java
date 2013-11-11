@@ -6,13 +6,14 @@ import oleksii.filonov.googleanalytics.utils.ProductReader;
 
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
 
 public class ProductStorage implements InitializingBean {
 
 	@Autowired
 	private ProductReader productReader;
 
-	private String pathToProductFile;
+	private Resource productsFile;
 
 	private List<Product> products;
 
@@ -20,13 +21,13 @@ public class ProductStorage implements InitializingBean {
 		return this.products;
 	}
 
-	public void setPathToProductFile(final String pathToProductFile) {
-		this.pathToProductFile = pathToProductFile;
+	public void setProductsFile(final Resource productsFile) {
+		this.productsFile = productsFile;
 	}
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
-		this.products = this.productReader.readProductsFromFile(this.pathToProductFile);
+		this.products = this.productReader.readProductsFromFile(this.productsFile);
 	}
 
 }
