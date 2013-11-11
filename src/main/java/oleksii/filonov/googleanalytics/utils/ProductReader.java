@@ -27,7 +27,9 @@ public class ProductReader {
 		final CSVEntryParser<Product> entryParser = new AnnotationEntryParser<Product>(Product.class, provider);
 		final CSVReader<Product> csvPersonReader = new CSVReaderBuilder<Product>(reader).entryParser(entryParser).build();
 
-		return csvPersonReader.readAll();
+		final List<Product> products = csvPersonReader.readAll();
+		reader.close();
+		return products;
 	}
 
 }
