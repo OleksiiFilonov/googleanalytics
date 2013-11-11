@@ -1,4 +1,4 @@
-package oleksii.filonov.googleanalytics;
+package oleksii.filonov.googleanalytics.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
