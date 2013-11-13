@@ -15,7 +15,7 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 public class ProductReaderTest {
 
 	private final ProductReader productReader = new ProductReader();
-	ApplicationContext ctx;
+	private ApplicationContext ctx;
 
 	@Before
 	public void setUp() {

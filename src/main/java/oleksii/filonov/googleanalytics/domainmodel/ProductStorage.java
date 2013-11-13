@@ -1,6 +1,9 @@
 package oleksii.filonov.googleanalytics.domainmodel;
 
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import oleksii.filonov.googleanalytics.utils.ProductReader;
 
@@ -15,10 +18,14 @@ public class ProductStorage implements InitializingBean {
 
 	private Resource productsFile;
 
-	private List<Product> products;
+	private Map<String, Product> productMap;
 
-	public List<Product> getProducts() {
-		return this.products;
+	public Product getProduct(final String productId) {
+		return this.productMap.get(productId);
+	}
+
+	public Collection<Product> getProducts() {
+		return this.productMap.values();
 	}
 
 	public void setProductsFile(final Resource productsFile) {
@@ -27,7 +34,12 @@ public class ProductStorage implements InitializingBean {
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
-		this.products = this.productReader.readProductsFromFile(this.productsFile);
+		final List<Product> products = this.productReader.readProductsFromFile(this.productsFile);
+		this.productMap = new HashMap<>(this.productMap.size());
+		for (final Product product : products) {
+			this.productMap.put(product.getId(), product);
+		}
+
 	}
 
 }
