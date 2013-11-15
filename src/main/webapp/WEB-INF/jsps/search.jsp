@@ -8,10 +8,10 @@
 	<h1>Search Page</h1>
 	<div>Found Products:</div>
 	<div>
-	  <table class="productsTable">
+	  <table>
 	      <thead>
 	          <tr>
-	              <td>Title</td><td>Description</td><td>Price</td>
+	              <th>Title</th><th>Description</th><th>Price</th>
 	          </tr>
 	      </thead>
 	      <tbody>

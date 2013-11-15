@@ -4,7 +4,7 @@
 </head>
 	<body>
 		<h1>Product Page</h1>
-		<table class="productTable">
+		<table>
 		  <tr><td>Title</td><td>${product.title}</td></tr>
 		  <tr><td>Description</td><td>${product.description}</td></tr>
 		  <tr><td>Price</td><td>${product.price}</td></tr>

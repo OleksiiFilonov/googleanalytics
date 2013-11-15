@@ -1,3 +1,8 @@
-.productsTable .productTable {
-    border: 1px;	
+table,td,th {
+	border: 1px solid green;
+}
+
+th {
+	background-color: blue;
+	color: white;
 }
