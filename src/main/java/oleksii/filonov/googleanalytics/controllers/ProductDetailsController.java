@@ -17,6 +17,7 @@ public class ProductDetailsController {
 
 	@RequestMapping("/{productId}")
 	public String showProduct(@PathVariable final String productId, final Model model) {
+		model.addAttribute("product", this.productStorage.getProduct(productId));
 		return "product";
 	}
 
