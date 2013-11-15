@@ -35,7 +35,7 @@ public class ProductStorage implements InitializingBean {
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		final List<Product> products = this.productReader.readProductsFromFile(this.productsFile);
-		this.productMap = new HashMap<>(this.productMap.size());
+		this.productMap = new HashMap<>(products.size());
 		for (final Product product : products) {
 			this.productMap.put(product.getId(), product);
 		}
