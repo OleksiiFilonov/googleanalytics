@@ -1,1 +1,1 @@
-<link rel="stylesheet" type="text/css" href="googleanalytics.css">
+<link rel="stylesheet" type="text/css" href="/css/googleanalytics.css">
