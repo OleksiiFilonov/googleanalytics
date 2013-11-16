@@ -6,6 +6,7 @@
 </head>
 <body>
 	<h1>Search Page</h1>
+	<jsp:include page="navHeader.jsp"/>
 	<div>Found Products:</div>
 	<div>
 	  <table>
