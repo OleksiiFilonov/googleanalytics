@@ -18,7 +18,7 @@
 	      <tbody>
 	          <c:forEach var="entry" items="${cart.entries}">
 	              <tr>
-	                  <td><a href="/product/${entry.product.id}">${entry.product.title}</a></td>
+	                  <td><a href="/product/${entry.product.id}.do">${entry.product.title}</a></td>
 	                  <td>${entry.product.description}</td>
 	                  <td>${entry.product.price}</td>
 	                  <td>${entry.quantity}</td>

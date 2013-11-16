@@ -11,7 +11,6 @@ public class CreateCartListener implements HttpSessionListener {
 
 	@Override
 	public void sessionCreated(final HttpSessionEvent se) {
-		System.out.println("CreateCartListener.sessionCreated()");
 		SessionUtils.createCart(se.getSession());
 	}
 
