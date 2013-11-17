@@ -27,5 +27,10 @@
 	      </tbody>
 	  </table>
 	</div>
+	<div>
+	   <form method="post" action="/checkout/delivery.do">
+	       <input type="submit" value="Checkout"/>
+	   </form>
+	</div>
 </body>
 </html>
