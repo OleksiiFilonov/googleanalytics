@@ -6,3 +6,11 @@ th {
 	background-color: blue;
 	color: white;
 }
+
+div.navigation {
+    margin-bottom: 30;
+}
+
+div.navigation a {
+	margin: 0 20;
+}
