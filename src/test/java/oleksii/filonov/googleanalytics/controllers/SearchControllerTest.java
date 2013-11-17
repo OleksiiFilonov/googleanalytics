@@ -8,6 +8,7 @@ import java.util.Collections;
 import oleksii.filonov.googleanalytics.domainmodel.Product;
 import oleksii.filonov.googleanalytics.domainmodel.ProductStorage;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -36,6 +37,14 @@ public class SearchControllerTest {
 	public void shouldDoPseudoSearch() {
 		final Model model = new ExtendedModelMap();
 		this.searchController.doPseudoSearch(model);
+		Assert.assertNotNull(model.asMap().get("products"));
+	}
+
+	@Test
+	public void shouldShowCategoryWithProducts() {
+		final Model model = new ExtendedModelMap();
+		this.searchController.showCategoryWithProducts(model);
+		Assert.assertNotNull(model.asMap().get("products"));
 	}
 
 

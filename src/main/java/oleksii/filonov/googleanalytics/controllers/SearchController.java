@@ -8,16 +8,25 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/search")
 public class SearchController {
 
 	@Autowired
 	private ProductStorage productStorage;
 
-	@RequestMapping
+	@RequestMapping("/search")
 	public String doPseudoSearch(final Model model) {
-		model.addAttribute("products", this.productStorage.getProducts());
+		displayAllProducts(model);
 		return "search";
+	}
+
+	private void displayAllProducts(final Model model) {
+		model.addAttribute("products", this.productStorage.getProducts());
+	}
+
+	@RequestMapping("/category")
+	public String showCategoryWithProducts(final Model model) {
+		displayAllProducts(model);
+		return "category";
 	}
 
 }
