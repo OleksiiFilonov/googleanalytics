@@ -36,4 +36,9 @@ public class Order {
 		return result;
 	}
 
+	public void clean() {
+		this.entries.clear();
+	}
+
+
 }
