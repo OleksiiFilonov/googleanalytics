@@ -24,7 +24,7 @@ public class CartController {
 
 	@RequestMapping
 	public String showCart(final Model model, final HttpSession session) {
-		model.addAttribute(CART_PAGE, SessionUtils.getCart(session));
+		model.addAttribute("cart", SessionUtils.getCart(session));
 		return CART_PAGE;
 	}
 

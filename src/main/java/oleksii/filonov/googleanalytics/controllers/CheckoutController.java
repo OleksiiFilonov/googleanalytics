@@ -6,6 +6,7 @@ import oleksii.filonov.googleanalytics.domainmodel.Order;
 import oleksii.filonov.googleanalytics.utils.SessionUtils;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -23,14 +24,16 @@ public class CheckoutController {
 	}
 
 	@RequestMapping("/confirmation")
-	public String showConfirmation() {
+	public String showConfirmation(final Model model, final HttpSession session) {
+		model.addAttribute("cart", SessionUtils.getCart(session));
 		return "confirmation";
 	}
 
 	@RequestMapping("/thankyou")
-	public String showThankYou(final HttpSession session) {
+	public String showThankYou(final Model model, final HttpSession session) {
 		final Order order = SessionUtils.getCart(session);
-		order.clean();
+		model.addAttribute("lastOrder", order);
+		SessionUtils.createCart(session);
 		return "thankyou";
 	}
 

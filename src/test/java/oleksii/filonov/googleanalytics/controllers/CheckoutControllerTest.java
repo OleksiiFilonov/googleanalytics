@@ -1,6 +1,10 @@
 package oleksii.filonov.googleanalytics.controllers;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNotNull;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import javax.servlet.http.HttpSession;
 
@@ -13,6 +17,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.ui.ExtendedModelMap;
+import org.springframework.ui.Model;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CheckoutControllerTest {
@@ -26,9 +32,11 @@ public class CheckoutControllerTest {
 	@Test
 	public void shouldCleanCartOnThankYouPage() {
 		final Order order = createOrderWithProduct();
-		Mockito.when(this.session.getAttribute("cart")).thenReturn(order);
-		this.checkoutController.showThankYou(this.session);
-		assertTrue("Order should have no products after thank you page", order.getEntries().isEmpty());
+		when(this.session.getAttribute("cart")).thenReturn(order);
+		final Model model = new ExtendedModelMap();
+		this.checkoutController.showThankYou(model, this.session);
+		assertNotNull(model.asMap().get("lastOrder"));
+		verify(this.session).setAttribute(eq("cart"), any(Order.class));
 	}
 
 
@@ -38,6 +46,15 @@ public class CheckoutControllerTest {
 		final Order order = new Order();
 		order.addProduct(testProduct);
 		return order;
+	}
+
+	@Test
+	public void shouldAddToModelOrderOnConfirmationPage() {
+		final Order order = createOrderWithProduct();
+		Mockito.when(this.session.getAttribute("cart")).thenReturn(order);
+		final Model model = new ExtendedModelMap();
+		this.checkoutController.showConfirmation(model, this.session);
+		assertNotNull(model.asMap().get("cart"));
 	}
 
 }

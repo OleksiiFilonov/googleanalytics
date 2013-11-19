@@ -24,6 +24,10 @@
 	                  <td>${entry.quantity}</td>
 	              </tr>
 	          </c:forEach>
+	          <tr>
+	           <td colspan="2">Total</td>
+	           <td colspan="2">${cart.total}</td>
+	          </tr>
 	      </tbody>
 	  </table>
 	</div>
