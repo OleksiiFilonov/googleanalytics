@@ -2,6 +2,7 @@
 
 <html>
 <head>
+    <title>Google Analytics Category Page</title>
 <jsp:include page="styles.jsp"/>
 </head>
 <body>
