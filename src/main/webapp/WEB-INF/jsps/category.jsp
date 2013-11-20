@@ -1,10 +1,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="t" %>
 
 <html>
 <head>
 <jsp:include page="styles.jsp"/>
 </head>
 <body>
+    <t:googleanalytics/>
 	<h1>Category Page</h1>
 	<jsp:include page="navHeader.jsp"/>
 	<div>Found Products:</div>
