@@ -1,6 +1,8 @@
 <html>
 <head>
-<jsp:include page="fragments/styles.jsp"/>
+    <title>Product Page</title>
+    <jsp:include page="fragments/styles.jsp"/>
+    <jsp:include page="fragments/googleanalytics.jsp"/>
 </head>
 	<body>
 		<h1>Product Page</h1>

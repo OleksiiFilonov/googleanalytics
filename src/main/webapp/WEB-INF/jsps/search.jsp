@@ -2,7 +2,9 @@
 
 <html>
 <head>
-<jsp:include page="fragments/styles.jsp"/>
+    <title>Search Page</title>
+    <jsp:include page="fragments/styles.jsp"/>
+    <jsp:include page="fragments/googleanalytics.jsp"/>
 </head>
 <body>
 	<h1>Search Page</h1>

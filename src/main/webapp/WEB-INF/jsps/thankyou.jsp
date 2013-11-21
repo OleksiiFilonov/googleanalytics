@@ -2,7 +2,9 @@
 
 <html>
 <head>
-<jsp:include page="fragments/styles.jsp"/>
+    <title>Thank You Page</title>
+    <jsp:include page="fragments/styles.jsp"/>
+    <jsp:include page="fragments/googleanalytics.jsp"/>
 </head>
 <body>
 	<h1>Thank You Page</h1>

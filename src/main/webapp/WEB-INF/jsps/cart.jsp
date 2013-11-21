@@ -3,7 +3,8 @@
 <html>
 <head>
     <title>Google Analytics Category Page</title>
-<jsp:include page="fragments/styles.jsp"/>
+    <jsp:include page="fragments/styles.jsp"/>
+    <jsp:include page="fragments/googleanalytics.jsp"/>
 </head>
 <body>
 	<h1>Basket Page</h1>
