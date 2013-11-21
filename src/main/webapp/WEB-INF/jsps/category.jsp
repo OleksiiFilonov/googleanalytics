@@ -1,11 +1,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib tagdir="/WEB-INF/tags" prefix="t" %>
 
 <html>
 <head>
     <title>Google Analytics Category Page</title>
 <jsp:include page="styles.jsp"/>
-    <t:googleanalytics/>
+<jsp:include page="fragments/googleanalytics.jsp"/>
 </head>
 <body>
 	<h1>Category Page</h1>
