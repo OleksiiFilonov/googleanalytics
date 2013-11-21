@@ -1,11 +1,11 @@
 <html>
 <head>
-<jsp:include page="styles.jsp"/>
+<jsp:include page="fragments/styles.jsp"/>
 </head>
 	<body>
 		<h1>Product Page</h1>
 		<div>
-		<jsp:include page="navHeader.jsp"/>
+		<jsp:include page="fragments/navHeader.jsp"/>
 		<table>
 		  <tr><td>Title</td><td>${product.title}</td></tr>
 		  <tr><td>Description</td><td>${product.description}</td></tr>

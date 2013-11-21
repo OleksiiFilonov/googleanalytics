@@ -2,11 +2,11 @@
 
 <html>
 <head>
-<jsp:include page="styles.jsp"/>
+<jsp:include page="fragments/styles.jsp"/>
 </head>
 <body>
 	<h1>Search Page</h1>
-	<jsp:include page="navHeader.jsp"/>
+	<jsp:include page="fragments/navHeader.jsp"/>
 	<div>Found Products:</div>
 	<div>
 	  <table>

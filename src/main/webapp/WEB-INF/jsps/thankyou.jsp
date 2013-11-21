@@ -2,11 +2,11 @@
 
 <html>
 <head>
-<jsp:include page="styles.jsp"/>
+<jsp:include page="fragments/styles.jsp"/>
 </head>
 <body>
 	<h1>Thank You Page</h1>
-	<jsp:include page="navHeader.jsp"/>
+	<jsp:include page="fragments/navHeader.jsp"/>
     <t:CartDetailsWithoutLinks order="${lastOrder}"/>
 </body>
 </html>

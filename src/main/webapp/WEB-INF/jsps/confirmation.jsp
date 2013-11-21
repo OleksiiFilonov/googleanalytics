@@ -2,7 +2,7 @@
 
 <html>
 <head>
-<jsp:include page="styles.jsp"/>
+<jsp:include page="fragments/styles.jsp"/>
 </head>	
 <body>
 	<h1>Confirmation Page</h1>

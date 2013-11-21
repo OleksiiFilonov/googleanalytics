@@ -4,6 +4,6 @@
 </head>
     <body>
         <h1>Welcome to google analytics test application!</h1>
-        <jsp:include page="navHeader.jsp"/>
+        <jsp:include page="fragments/navHeader.jsp"/>
     </body>
 </html>

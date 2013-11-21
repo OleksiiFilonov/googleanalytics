@@ -3,11 +3,11 @@
 <html>
 <head>
     <title>Google Analytics Category Page</title>
-<jsp:include page="styles.jsp"/>
+<jsp:include page="fragments/styles.jsp"/>
 </head>
 <body>
 	<h1>Basket Page</h1>
-	<jsp:include page="navHeader.jsp"/>
+	<jsp:include page="fragments/navHeader.jsp"/>
 	<div>Added Products:</div>
 	<div>
 	  <table>
