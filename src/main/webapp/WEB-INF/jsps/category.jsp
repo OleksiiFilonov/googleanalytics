@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>Google Analytics Category Page</title>
+    <title>Category Page</title>
 	<jsp:include page="fragments/styles.jsp"/>
 	<jsp:include page="fragments/googleanalytics.jsp"/>
 </head>
