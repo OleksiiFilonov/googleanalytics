@@ -1,4 +1,4 @@
-<%@ taglib tagdir="/WEB-INF/tags" prefix="t" %>
+<%@ taglib tagdir="tags" prefix="t" %>
 
 <html>
 <head>
@@ -9,6 +9,6 @@
 <body>
 	<h1>Thank You Page</h1>
 	<jsp:include page="fragments/navHeader.jsp"/>
-    <t:CartDetailsWithoutLinks order="${lastOrder}"/>
+    <t:cartDetailsWithoutLinks order="${lastOrder}"/>
 </body>
 </html>

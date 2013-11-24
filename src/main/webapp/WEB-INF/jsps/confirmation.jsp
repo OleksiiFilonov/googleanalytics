@@ -1,4 +1,4 @@
-<%@ taglib tagdir="/WEB-INF/tags" prefix="t" %>
+<%@ taglib tagdir="tags" prefix="t" %>
 
 <html>
 <head>
@@ -8,7 +8,7 @@
 </head>	
 <body>
 	<h1>Confirmation Page</h1>
-    <t:CartDetailsWithoutLinks order="${cart}"/>
+    <t:cartDetailsWithoutLinks order="${cart}"/>
        <div>
           <form method="post" action="/checkout/thankyou.do">
               <input type="submit" value="Confirm"/>
