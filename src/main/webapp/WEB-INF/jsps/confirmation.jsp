@@ -1,4 +1,4 @@
-<%@ taglib tagdir="tags" prefix="t" %>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="t" %>
 
 <html>
 <head>

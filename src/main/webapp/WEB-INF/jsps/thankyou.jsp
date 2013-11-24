@@ -1,10 +1,11 @@
-<%@ taglib tagdir="tags" prefix="t" %>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="t" %>
 
 <html>
 <head>
     <title>Thank You Page</title>
     <jsp:include page="fragments/styles.jsp"/>
     <jsp:include page="fragments/googleanalytics.jsp"/>
+    <t:ecommerceAnalytics order="${lastOrder}"/>
 </head>
 <body>
 	<h1>Thank You Page</h1>
