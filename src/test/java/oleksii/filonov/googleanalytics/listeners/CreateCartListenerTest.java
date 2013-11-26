@@ -4,6 +4,7 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.util.ReflectionTestUtils.setField;
 import static org.springframework.web.context.WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE;
 
 import javax.servlet.ServletContext;
@@ -19,7 +20,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.web.context.WebApplicationContext;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -40,7 +40,7 @@ public class CreateCartListenerTest {
 		when(this.session.getServletContext()).thenReturn(this.servletContext);
 		when(this.servletContext.getAttribute(ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE)).thenReturn(this.ctx);
 		final SessionUtils sessionUtils = new SessionUtils();
-		ReflectionTestUtils.setField(sessionUtils, "orderGenerator", new RandomOrderGenerator());
+		setField(sessionUtils, "orderGenerator", new RandomOrderGenerator());
 		when(this.ctx.getBean("sessionUtils")).thenReturn(sessionUtils);
 	}
 
