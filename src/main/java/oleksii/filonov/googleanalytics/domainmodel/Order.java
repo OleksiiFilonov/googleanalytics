@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Order {
+	
+	private String orderId;
 
 	private final Map<String, OrderEntry> entries = new HashMap<>();
 
@@ -38,6 +40,15 @@ public class Order {
 
 	public void clean() {
 		this.entries.clear();
+	}
+
+
+	public String getOrderId() {
+		return orderId;
+	}
+	
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
 	}
 
 
