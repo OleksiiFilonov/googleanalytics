@@ -1,5 +1,6 @@
 package oleksii.filonov.googleanalytics.controllers;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import oleksii.filonov.googleanalytics.domainmodel.Order;
@@ -19,18 +20,20 @@ public class CartController {
 
 	@Autowired
 	private ProductStorage productStorage;
+	@Resource
+	private SessionUtils sessionUtils;	
 
 	private static final String CART_PAGE = "cart";
 
 	@RequestMapping
 	public String showCart(final Model model, final HttpSession session) {
-		model.addAttribute("cart", SessionUtils.getCart(session));
+		model.addAttribute("cart", sessionUtils.getCart(session));
 		return CART_PAGE;
 	}
 
 	@RequestMapping(value = "/addToCart", method = RequestMethod.POST)
 	public String addToCart(@RequestParam final String productId, final HttpSession session) {
-		final Order order = SessionUtils.getCart(session);
+		final Order order = sessionUtils.getCart(session);
 		order.addProduct(this.productStorage.getProduct(productId));
 		return "redirect:/" + CART_PAGE + ".do";
 	}

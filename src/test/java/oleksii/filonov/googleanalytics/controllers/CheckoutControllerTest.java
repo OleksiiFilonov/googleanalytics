@@ -11,22 +11,31 @@ import javax.servlet.http.HttpSession;
 import oleksii.filonov.googleanalytics.domainmodel.Order;
 import oleksii.filonov.googleanalytics.domainmodel.Product;
 import oleksii.filonov.googleanalytics.domainmodel.ProductBuilder;
+import oleksii.filonov.googleanalytics.utils.SessionUtils;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.ui.ExtendedModelMap;
 import org.springframework.ui.Model;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CheckoutControllerTest {
 
-	private final CheckoutController checkoutController = new CheckoutController();
+	private CheckoutController checkoutController;
 
 	@Mock
 	private HttpSession session;
+	
+	@Before
+	public void setUp() {
+		checkoutController = new CheckoutController();
+		ReflectionTestUtils.setField(checkoutController, "sessionUtils", new SessionUtils());
+	}
 
 
 	@Test
