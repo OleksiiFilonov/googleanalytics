@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Order {
-	
-	private String orderId;
+
+	private String id;
 
 	private final Map<String, OrderEntry> entries = new HashMap<>();
 
@@ -42,14 +42,12 @@ public class Order {
 		this.entries.clear();
 	}
 
-
-	public String getOrderId() {
-		return orderId;
-	}
-	
-	public void setOrderId(String orderId) {
-		this.orderId = orderId;
+	public String getId() {
+		return this.id;
 	}
 
+	public void setId(final String id) {
+		this.id = id;
+	}
 
 }

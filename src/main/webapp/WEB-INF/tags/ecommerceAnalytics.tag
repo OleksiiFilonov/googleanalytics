@@ -6,7 +6,7 @@
 	ga('require', 'ecommerce', 'ecommerce.js');
 
 	ga('ecommerce:addTransaction', {
-		'id' : '${pageContext.session.id}', // Transaction ID. Required.
+		'id' : '${order.id}', // Transaction ID. Required.
 		'affiliation' : 'Workshop Google Analytics', // Affiliation or store name.
 		'revenue' : '${order.total}', // Grand Total.
 		'shipping' : 'FREE', // Shipping.
@@ -15,7 +15,7 @@
     
 	<c:forEach var="entry" items="${order.entries}" varStatus="counter">
 		ga('ecommerce:addItem', {
-			'id' : '${pageContext.session.id}', // Transaction ID. Required.
+			'id' : '${order.id}', // Transaction ID. Required.
 			'name' : '${entry.product.title}', // Product name. Required.
 			'sku' : '${entry.product.id}', // SKU/code.
 			'category' : 'Laptops', // Category or variation.

@@ -18,7 +18,7 @@ public class SessionUtils {
 
 	public void createCart(final HttpSession session) {
 		final Order order = new Order();
-		order.setOrderId(this.orderGenerator.generateOrderNumber());
+		order.setId(this.orderGenerator.generateOrderNumber());
 		session.setAttribute(CART, order);
 	}
 
