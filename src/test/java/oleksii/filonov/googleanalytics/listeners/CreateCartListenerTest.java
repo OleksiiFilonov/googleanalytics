@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 
 import oleksii.filonov.googleanalytics.domainmodel.Order;
+import oleksii.filonov.googleanalytics.utils.RandomOrderGenerator;
 import oleksii.filonov.googleanalytics.utils.SessionUtils;
 
 import org.junit.Before;
@@ -18,6 +19,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.web.context.WebApplicationContext;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -37,7 +39,9 @@ public class CreateCartListenerTest {
 		this.testInstance = new CreateCartListener();
 		when(this.session.getServletContext()).thenReturn(this.servletContext);
 		when(this.servletContext.getAttribute(ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE)).thenReturn(this.ctx);
-		when(this.ctx.getBean("sessionUtils")).thenReturn(new SessionUtils());
+		final SessionUtils sessionUtils = new SessionUtils();
+		ReflectionTestUtils.setField(sessionUtils, "orderGenerator", new RandomOrderGenerator());
+		when(this.ctx.getBean("sessionUtils")).thenReturn(sessionUtils);
 	}
 
 	@Test

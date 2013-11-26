@@ -5,12 +5,14 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.util.ReflectionTestUtils.setField;
 
 import javax.servlet.http.HttpSession;
 
 import oleksii.filonov.googleanalytics.domainmodel.Order;
 import oleksii.filonov.googleanalytics.domainmodel.Product;
 import oleksii.filonov.googleanalytics.domainmodel.ProductBuilder;
+import oleksii.filonov.googleanalytics.utils.RandomOrderGenerator;
 import oleksii.filonov.googleanalytics.utils.SessionUtils;
 
 import org.junit.Before;
@@ -19,22 +21,23 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.ui.ExtendedModelMap;
 import org.springframework.ui.Model;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CheckoutControllerTest {
 
-	private CheckoutController checkoutController;
-
+	private CheckoutController testInstance;
 	@Mock
 	private HttpSession session;
-	
+
+
 	@Before
 	public void setUp() {
-		checkoutController = new CheckoutController();
-		ReflectionTestUtils.setField(checkoutController, "sessionUtils", new SessionUtils());
+		final SessionUtils sessionUtils = new SessionUtils();
+		setField(sessionUtils, "orderGenerator", new RandomOrderGenerator());
+		this.testInstance = new CheckoutController();
+		setField(this.testInstance, "sessionUtils", sessionUtils);
 	}
 
 
@@ -43,7 +46,7 @@ public class CheckoutControllerTest {
 		final Order order = createOrderWithProduct();
 		when(this.session.getAttribute("cart")).thenReturn(order);
 		final Model model = new ExtendedModelMap();
-		this.checkoutController.showThankYou(model, this.session);
+		this.testInstance.showThankYou(model, this.session);
 		assertNotNull(model.asMap().get("lastOrder"));
 		verify(this.session).setAttribute(eq("cart"), any(Order.class));
 	}
@@ -62,7 +65,7 @@ public class CheckoutControllerTest {
 		final Order order = createOrderWithProduct();
 		Mockito.when(this.session.getAttribute("cart")).thenReturn(order);
 		final Model model = new ExtendedModelMap();
-		this.checkoutController.showConfirmation(model, this.session);
+		this.testInstance.showConfirmation(model, this.session);
 		assertNotNull(model.asMap().get("cart"));
 	}
 
