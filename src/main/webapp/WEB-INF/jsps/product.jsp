@@ -1,6 +1,7 @@
 <html>
 <head>
     <title>Product Page</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <jsp:include page="fragments/styles.jsp"/>
     <jsp:include page="fragments/googleanalytics.jsp"/>
 </head>
@@ -14,6 +15,7 @@
 		  <tr><td>Price</td><td>${product.price}</td></tr>
 		</table>
 		</div>
+		<div><a id="download" href="#">Download Specification</a></div>
 		<div>
 		  <form action="/cart/addToCart.do" method="post">
 		      <input type="hidden" value="${product.id}" name="productId"/>
@@ -21,4 +23,9 @@
 		  </form>
 		</div>
 	</body>
+	<script>
+		$('#download').on('click', function() {
+			  ga('send', 'event', 'link', 'click', 'specification', ${product.id});
+			});	
+	</script>
 </html>
