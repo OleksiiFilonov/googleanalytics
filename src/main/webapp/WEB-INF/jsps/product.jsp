@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>Product Page</title>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
     <jsp:include page="fragments/styles.jsp"/>
     <jsp:include page="fragments/googleanalytics.jsp"/>
 </head>
@@ -10,7 +10,7 @@
 		<div>
 		<jsp:include page="fragments/navHeader.jsp"/>
 		<table>
-		  <tr><td>Title</td><td>${product.title}</td></tr>
+		  <tr><td>Title</td><td>${product.title}</td></tr>m
 		  <tr><td>Description</td><td>${product.description}</td></tr>
 		  <tr><td>Price</td><td>${product.price}</td></tr>
 		</table>
