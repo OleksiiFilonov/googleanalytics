@@ -26,6 +26,7 @@
 	<script>
 		$('#download').on('click', function() {
 			  ga('send', 'event', 'link', 'click', 'specification', ${product.id});
+			  $('#download').text('Downloaded')
 			});	
 	</script>
 </html>
