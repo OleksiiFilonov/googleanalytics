@@ -12,4 +12,5 @@
 	<jsp:include page="fragments/navHeader.jsp"/>
     <t:cartDetailsWithoutLinks order="${lastOrder}"/>
 </body>
+<jsp:include page="fragments/trackLoadTime.jsp"/>
 </html>

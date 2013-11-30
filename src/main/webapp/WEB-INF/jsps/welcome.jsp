@@ -8,4 +8,5 @@
         <h1>Welcome to google analytics test application!</h1>
         <jsp:include page="fragments/navHeader.jsp"/>
     </body>
+    <jsp:include page="fragments/trackLoadTime.jsp"/>
 </html>

@@ -29,4 +29,5 @@
 			  $('#download').text('Downloaded')
 			});	
 	</script>
+	<jsp:include page="fragments/trackLoadTime.jsp"/>
 </html>

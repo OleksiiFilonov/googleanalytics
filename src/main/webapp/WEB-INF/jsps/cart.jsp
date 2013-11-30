@@ -39,4 +39,5 @@
 	   </form>
 	</div>
 </body>
+<jsp:include page="fragments/trackLoadTime.jsp"/>
 </html>
